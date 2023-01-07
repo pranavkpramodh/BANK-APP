@@ -1,0 +1,21 @@
+button{
+    margin: 15px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding:0px 10px;
+
+}
+
+.yesBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+}

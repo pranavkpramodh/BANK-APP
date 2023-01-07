@@ -1,0 +1,81 @@
+
+
+<div class="title">
+<h1>Welcome {{user}}</h1>
+<a routerLink="/transaction">Transaction History</a>
+<h4>System Date and Time:{{sdate | date:'short'}}</h4>
+</div>
+
+<div class="logoutbtn">
+    <div>
+    <button class="logout" (click)="logout()">Logout</button>
+    <button class="delete" (click)="delete()">Delete</button>
+    </div>
+</div>
+<app-delete [item]="acno" (onCancel)="onCancel()" (onDelete)="onDelete($event)"></app-delete>
+
+
+<!-- child selector -->
+
+
+<div class="parent" [ngClass]="acno? 'style1':''">
+
+    <!-- deposit -->
+    <div class="child1">
+        <div class="container">
+            <div class="signup">
+                
+                <div class="box">
+                    <div><img src="../../assets/images/Banks.jpg" alt=""></div>
+                <h1>Deposit</h1>
+
+                <form [formGroup]="depositForm">
+
+                <div><input formControlName="acno" id="depo_acno" name="acno" type="text" placeholder="enter account number"></div>
+                <div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched" style="color: red;">invalid account number</div>
+
+                <div><input formControlName="pswd" id="depo_pswd" name="pswd" type="password" placeholder="Enter Password"></div>
+                <div *ngIf="this.depositForm.get('pswd')?.errors && this.depositForm.get('pswd')?.touched" style="color: red;">invalid password</div>
+
+                <div><input formControlName="amt" id="depo_amt" name="amt" type="text" placeholder="Enter Amount"></div>
+                <div *ngIf="this.depositForm.get('amt')?.errors && this.depositForm.get('amt')?.touched" style="color: red;">invalid amount</div>
+
+                <div><button id="register" (click)="deposit()" type="button">Deposit</button></div>
+        
+                </form>
+            </div>
+            </div>
+        </div>        
+    </div>
+
+
+
+    <!-- withdrow -->
+    <div class="child2">
+        <div class="container">
+            <div class="signup">
+                
+                <div class="box">
+                    <div><img src="../../assets/images/Banks.jpg" alt=""></div>
+                <h1>Withdraw</h1>
+
+               
+                <form [formGroup]="withdrawForm">
+
+                <div><input formControlName="acno1" id="withdraw_acno" name="acno" type="text" placeholder="enter account number"></div>
+                <div *ngIf="this.withdrawForm.get('acno1')?.errors && this.withdrawForm.get('acno1')?.touched" style="color: red;">invalid account number</div>
+
+                <div><input formControlName="pswd1" id="withdraw_pswd" name="pswd" type="password" placeholder="Enter Password"></div>
+                <div *ngIf="this.withdrawForm.get('pswd1')?.errors && this.withdrawForm.get('pswd1')?.touched" style="color: red;">invalid password</div>
+
+                <div><input formControlName="amt1" id="withdraw_amt" name="amt" type="text" placeholder="Enter Amount"></div>
+                <div *ngIf="this.withdrawForm.get('amt1')?.errors && this.withdrawForm.get('amt1')?.touched" style="color: red;">invalid amount</div>
+
+                <div><button id="register" (click)="withdraw()" type="button">Withdraw</button></div>
+                </form>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

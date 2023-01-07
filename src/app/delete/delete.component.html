@@ -1,0 +1,9 @@
+<div class="yesBtn" *ngIf="item" >
+    <div>
+    <h3>Are you sure do you want to detele this {{item}}?</h3>
+    <div class="btns">
+    <button style="background-color: red;" (click)="delete()">Yes</button>
+    <button style="background-color: green;" (click)="cancel()">No</button>
+    </div>
+    </div>
+</div>

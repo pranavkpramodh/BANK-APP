@@ -1,0 +1,104 @@
+
+
+Basic Builing Blocks
+
+1)Module - To import 3rd party Modules(root module -app.module.ts)
+2)Component - To create html,css,and ts files
+
+----Basic comamands----
+
+1)To create new project -ng new project_name
+2)To crate new component -ng g c component_name
+3)To run Angular files -ng serve --open
+
+
+Basic concepts   
+
+Data binding 
+-Share data between components
+
+ts->Component
+html->View
+
+1)One way data binding 
+  data sharing only one direction
+    1.1)Component to view(ts->html) 
+
+        a)String Interpolation - {{expression}}
+        b)property binding - [attribute_name]="property" 
+
+    1.2)View to components (html -> ts)
+
+        a)Event binding - (event_name)="function_name()"
+        b)Event Binding using $event-(event_name)="function_name($event)"
+        c)Event binding using template referencing variable - #variable_name
+
+2)Two way data binding 
+  Data sharing both direction (ts->html  html->ts)
+
+    i)ngModel binding - import formsModule in app.module.ts
+
+    [(ngModel)]="property_name"
+
+
+
+2)--Angular Routing--
+
+    To set path for component
+    {
+        path:value,component:component_name
+    },
+
+    login
+    {
+        path:'',component:LoginComponen
+    },
+
+  3)--Angular servieces--
+
+  To hold redundant data
+
+To create new service -ng g s service_name
+
+4)--Dependency Injection--(dependancy of two classes)
+
+  To share data between two dependent classes
+
+  constructor(private ds:DataService)
+
+5)--Angular Directives ---To manipulate Dom
+
+  a)component directives(array)
+
+  b)structural directives(table)
+    -> *ngFor
+    -> *ngIf
+
+
+6)---Angular Forms---
+  a) Template driven Forms--(first design the html template)
+  b) Model driven Forms--(first design model in ts file)
+    1)Reactive Forms
+      --formGroup,array,control
+      --it is for advanced validation
+      --import from Reactive Forms Module(in app.module.ts)
+
+
+7)---Local storage---
+  -setItem - to store data in localstorage 
+  -getItem - to get data from local storage
+  -removeItem - to remove data from localstorage
+
+8)---Parent Child communication---
+  parent -> child communication
+  child -> parent communication
+
+  eg:-
+      dashboard -> parent 
+      delete -> child
+
+
+
+9)---Angular pipes---
+
+date pipe -{{value_expression | date [ : format [ : timezone [ :locale ]]]}}
